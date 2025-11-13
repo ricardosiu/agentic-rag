@@ -21,6 +21,9 @@ from typing import List, Mapping, Optional, Any
 from chatui.utils import gpu_compatibility
 import os
 
+import warnings
+warnings.filterwarnings('ignore')
+
 import phoenix as px
 from phoenix.otel import register
 from openinference.instrumentation.openai import OpenAIInstrumentor
@@ -32,9 +35,9 @@ class CustomChatOpenAI(BaseChatModel):
     """ This is a custom built class for using LangChain to chat with custom OpenAI API-compatible endpoints, eg. NIMs. """
     
     # Added Arize Phoenix Tracing
-    PROJECT_NAME = "tracing-agent"   
+    # PROJECT_NAME = "tracing-agent"   
     tracer_provider = register (
-        project_name=PROJECT_NAME,
+        project_name="tracing-agent",
         endpoint= "http://192.168.1.146:6006/v1/traces"
     )
     OpenAIInstrumentor().instrument(tracer_provider = tracer_provider)
