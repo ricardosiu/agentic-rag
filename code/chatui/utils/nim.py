@@ -21,8 +21,24 @@ from typing import List, Mapping, Optional, Any
 from chatui.utils import gpu_compatibility
 import os
 
+import phoenix as px
+from phoenix.otel import register
+from openinference.instrumentation.openai import OpenAIInstrumentor
+from openinference.semconv.trace import SpanAttributes
+from opentelemetry.trace import Status, StatusCode
+from openinference.instrumentation import TracerProvider
+
 class CustomChatOpenAI(BaseChatModel):
     """ This is a custom built class for using LangChain to chat with custom OpenAI API-compatible endpoints, eg. NIMs. """
+    
+    # Added Arize Phoenix Tracing
+    PROJECT_NAME = "tracing-agent"   
+    tracer_provider = register (
+        project_name=PROJECT_NAME,
+        endpoint= "http://192.168.1.146:6006/v1/traces"
+    )
+    OpenAIInstrumentor().instrument(tracer_provider = tracer_provider)
+    tracer = tracer_provider.get_tracer(__name__)
 
     custom_endpoint: str = Field(None, description='Endpoint of remotely running NIM')
     port: Optional[str] = "8000"
