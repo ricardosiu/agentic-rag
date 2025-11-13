@@ -36,6 +36,29 @@ import traceback
 from chatui.utils.error_messages import QUERY_ERROR_MESSAGES
 from chatui.utils.graph import TavilyAPIError
 
+import warnings
+warnings.filterwarnings('ignore')
+
+import phoenix as px
+from phoenix.otel import register
+from openinference.instrumentation.openai import OpenAIInstrumentor
+from openinference.semconv.trace import SpanAttributes
+from opentelemetry.trace import Status, StatusCode
+from openinference.instrumentation import TracerProvider
+from openinference.instrumentation.langchain import LangChainInstrumentor
+
+# Added Arize Phoenix Tracing
+# PROJECT_NAME = "tracing-agent"   
+tracer_provider = register (
+    project_name="tracing-agent",
+    endpoint= "http://192.168.1.146:6006/v1/traces",
+    auto_instrument= True
+)
+# OpenAIInstrumentor().instrument(tracer_provider = tracer_provider)
+LangChainInstrumentor().instrument(tracer_provider = tracer_provider)
+tracer = tracer_provider.get_tracer(__name__)
+
+
 # UI names and labels
 SELF_HOSTED_TAB_NAME = "Self-Hosted Endpoint"
 HOST_NAME = "Local NIM or Remote IP/Hostname"

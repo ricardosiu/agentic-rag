@@ -21,3 +21,4 @@ arize-phoenix
 arize-phoenix-otel
 openinference-instrumentation
 openinference-instrumentation-openai
+openinference-instrumentation-langchain
