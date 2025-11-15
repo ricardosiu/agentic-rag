@@ -129,6 +129,8 @@ execution:
           description: NVIDIA API Key for accessing the API catalog
         - variable: TAVILY_API_KEY
           description: Tavily Search API Key
+        - variable: NGC_API_KEY
+          description: NGC API Key
     mounts:
         - type: project
           target: /project/

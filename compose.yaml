@@ -2,7 +2,7 @@
 # https://docs.docker.com/reference/compose-file/
 services:
   local-nim:
-    image: nvcr.io/nim/meta/llama-3.1-8b-instruct:latest
+    image: nvcr.io/nim/meta/llama-3.1-8b-instruct-dgx-spark:latest
     runtime: nvidia
     deploy:
       resources:
@@ -18,7 +18,7 @@ services:
         source: /tmp
         target: /opt/nim/.cache/
     environment:
-      - NGC_API_KEY=${NVIDIA_API_KEY:?Error NVIDIA_API_KEY not set}
+      - NGC_API_KEY=${NGC_API_KEY:?Error NVIDIA_API_KEY not set}
       
 networks:
   default:
