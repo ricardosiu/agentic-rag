@@ -85,26 +85,42 @@ if INTERNAL_API == 'yes':
 
 # URLs for default example docs for the RAG.
 doc_links = (
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/overview/introduction.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/overview.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/windows.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/macos.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/ubuntu-local.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/ubuntu-remote.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-basic.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-cli.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-environment.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-environment-cli.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-custom-app.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-hybrid-rag.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/example-projects.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/locations/remote.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/projects/base-environments.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/reference/components.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/reference/cli.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/troubleshooting/troubleshooting.html",
-    "https://docs.nvidia.com/ai-workbench/user-guide/latest/troubleshooting/logging.html",
-    "https://raw.githubusercontent.com/NVIDIA/workbench-example-agentic-rag/refs/heads/main/README.md",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/overview/introduction.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/overview.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/windows.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/macos.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/ubuntu-local.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/installation/ubuntu-remote.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-basic.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-cli.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-environment.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-environment-cli.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-custom-app.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/quickstart-hybrid-rag.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/quickstart/example-projects.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/locations/remote.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/projects/base-environments.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/reference/components.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/reference/cli.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/troubleshooting/troubleshooting.html",
+    # "https://docs.nvidia.com/ai-workbench/user-guide/latest/troubleshooting/logging.html",
+    # "https://raw.githubusercontent.com/NVIDIA/workbench-example-agentic-rag/refs/heads/main/README.md",
+    "https://www.quantum.com.hk/aisle-containment/",
+    "https://www.quantum.com.hk/airflow-managements/",
+    "https://www.quantum.com.hk/smart-rack/",
+    "https://quantum.com.hk/power-management/",
+    "https://quantum.com.hk/environmental-monitoring/",
+    "https://quantum.com.hk/real-time-it-asset-tracking/",
+    "https://quantum.com.hk/centralized-management/",
+    "https://quantum.com.hk/console-servers/",
+    "https://quantum.com.hk/kvm-drawers/",
+    "https://quantum.com.hk/kvm-switches/",
+    "https://quantum.com.hk/data-center-infrastructure-management/",
+    "https://quantum.com.hk/connectivity/",
+    "https://quantum.com.hk/about/",
+    "https://quantum.com.hk/weekly-digest-q4-april-2024/",
+    "http://quantum.com.hk/why-demanding-ai-workloads-need-to-be-isolated-in-their-own-environment-within-the-data-center/",
+    "http://quantum.com.hk/",   
 )
 EXAMPLE_LINKS_LEN = 10
 
@@ -356,7 +372,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                                         
                                         with gr.Row():
                                             nim_router_ip = gr.Textbox(
-                                                value = "agentic-rag-local-nim-1",
+                                                value = "192.168.1.145",
                                                 label=HOST_NAME,
                                                 info="Local microservice OR IP address running a remote microservice",
                                                 elem_id="rag-inputs",
@@ -431,7 +447,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                                         
                                         with gr.Row():
                                             nim_retrieval_ip = gr.Textbox(
-                                                value = "agentic-rag-local-nim-1",
+                                                value = "192.168.1.145",
                                                 label=HOST_NAME,
                                                 info="Local microservice OR IP address running a remote microservice",
                                                 elem_id="rag-inputs",
@@ -505,7 +521,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                                         
                                         with gr.Row():
                                             nim_generator_ip = gr.Textbox(
-                                                value = "agentic-rag-local-nim-1",
+                                                value = "192.168.1.145",
                                                 label=HOST_NAME,
                                                 info="Local microservice OR IP address running a remote microservice",
                                                 elem_id="rag-inputs",
@@ -579,7 +595,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                                         
                                         with gr.Row():
                                             nim_hallucination_ip = gr.Textbox(
-                                                value = "agentic-rag-local-nim-1",
+                                                value = "192.168.1.145",
                                                 label=HOST_NAME,
                                                 info="Local microservice OR IP address running a remote microservice",
                                                 elem_id="rag-inputs",
@@ -653,7 +669,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                                         
                                         with gr.Row():
                                             nim_answer_ip = gr.Textbox(
-                                                value = "agentic-rag-local-nim-1",
+                                                value = "192.168.1.145",
                                                 label=HOST_NAME,
                                                 info="Local microservice OR IP address running a remote microservice",
                                                 elem_id="rag-inputs",
