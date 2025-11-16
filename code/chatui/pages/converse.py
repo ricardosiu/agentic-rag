@@ -343,7 +343,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                             ########################
                             router_btn = gr.Button("Router", variant="sm")
                             with gr.Group(visible=False) as group_router:
-                                with gr.Tabs(selected=0) as router_tabs:
+                                with gr.Tabs(selected=1) as router_tabs:
                                     with gr.TabItem("API Endpoints", id=0) as router_api:
                                         router_mode_banner = gr.Markdown(value="💻 **Using API Endpoint**", elem_classes=["mode-banner"])
                                         model_router = gr.Dropdown(model_list, 
@@ -418,7 +418,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                             ##################################
                             retrieval_btn = gr.Button("Retrieval Grader", variant="sm")
                             with gr.Group(visible=False) as group_retrieval:
-                                with gr.Tabs(selected=0) as retrieval_tabs:
+                                with gr.Tabs(selected=1) as retrieval_tabs:
                                     retrieval_mode_banner = gr.Markdown(value="💻 **Using API Endpoint**", elem_classes=["mode-banner"])
 
                                     with gr.TabItem("API Endpoints", id=0) as retrieval_api:
@@ -493,7 +493,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                             ###########################
                             generator_btn = gr.Button("Generator", variant="sm")
                             with gr.Group(visible=False) as group_generator:
-                                with gr.Tabs(selected=0) as generator_tabs:
+                                with gr.Tabs(selected=1) as generator_tabs:
                                     generator_mode_banner = gr.Markdown(value="💻 **Using API Endpoint**", elem_classes=["mode-banner"])
                                     with gr.TabItem("API Endpoints", id=0) as generator_api:
                                         model_generator = gr.Dropdown(model_list, 
@@ -567,7 +567,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                             ######################################
                             hallucination_btn = gr.Button("Hallucination Grader", variant="sm")
                             with gr.Group(visible=False) as group_hallucination:
-                                with gr.Tabs(selected=0) as hallucination_tabs:
+                                with gr.Tabs(selected=1) as hallucination_tabs:
                                     hallucination_mode_banner = gr.Markdown(value="💻 **Using API Endpoint**", elem_classes=["mode-banner"])
                                     with gr.TabItem("API Endpoints", id=0) as hallucination_api:
                                         model_hallucination = gr.Dropdown(model_list, 
@@ -641,7 +641,7 @@ def build_page(client: chat_client.ChatClient) -> gr.Blocks:
                             ###############################
                             answer_btn = gr.Button("Answer Grader", variant="sm")
                             with gr.Group(visible=False) as group_answer:
-                                with gr.Tabs(selected=0) as answer_tabs:
+                                with gr.Tabs(selected=1) as answer_tabs:
                                     answer_mode_banner = gr.Markdown(value="💻 **Using API Endpoint**", elem_classes=["mode-banner"])
                                     with gr.TabItem("API Endpoints", id=0) as answer_api:
                                         model_answer = gr.Dropdown(model_list, 
